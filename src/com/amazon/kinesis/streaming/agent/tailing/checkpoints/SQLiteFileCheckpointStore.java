@@ -68,7 +68,7 @@ public class SQLiteFileCheckpointStore implements FileCheckpointStore {
         this.dbConnectionTimeoutSeconds = this.agentContext.readInteger("checkpoints.connectionTimeoutSeconds", DEFAULT_DB_CONNECTION_TIMEOUT_SECONDS);
         connect();
         // Every time we connect, try cleaning up the database
-        deleteOldData();
+        //deleteOldData();
     }
 
     private synchronized boolean isConnected() {
