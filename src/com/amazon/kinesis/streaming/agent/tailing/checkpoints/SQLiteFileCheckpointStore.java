@@ -107,21 +107,6 @@ public class SQLiteFileCheckpointStore implements FileCheckpointStore {
             } catch (SQLException | IOException e) {
                 throw new RuntimeException("Failed to create or connect to the checkpoint database.", e);
             }
-            try {
-                @Cleanup Statement statement = connection.createStatement();
-                statement.executeUpdate("create table if not exists FILE_CHECKPOINTS("
-                        + "       flow text,"
-                        + "       path text,"
-                        + "       fileId text,"
-                        + "       lastModifiedTime bigint,"
-                        + "       size bigint,"
-                        + "       offset bigint,"
-                        + "       lastUpdated datetime,"
-                        + "       primary key (flow, path))"
-                        );
-            } catch (SQLException e) {
-                throw new RuntimeException("Failed to configure the checkpoint database.", e);
-            }
         }
     }
 
