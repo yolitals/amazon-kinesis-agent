@@ -1,6 +1,6 @@
 import sqlite3
 
-checkpoints_file = '/var/run/aws-kinesis-agent'
+checkpoints_file = '/var/log/trklogs/checkpoints/adserver-dev-clickmanager/checkpoints'
 create_table_statement = "create table if not exists FILE_CHECKPOINTS(flow text,path text,fileId text,lastModifiedTime bigint,size bigint,offset bigint,lastUpdated datetime,primary key (flow, path))"
 
 try:
